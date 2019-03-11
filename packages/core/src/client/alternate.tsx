@@ -1,9 +1,15 @@
 import React, { FunctionComponent } from "react";
 import { hydrate } from "react-dom";
 import App, { Props } from "../app";
+import _ from "lodash";
+
+_.add(1, 2);
 
 const render = (Component: FunctionComponent<Props>): void => {
-  hydrate(<Component bundle="other" />, window.document.getElementById("root"));
+  hydrate(
+    <Component bundle="alternate" />,
+    window.document.getElementById("root")
+  );
 };
 
 declare global {

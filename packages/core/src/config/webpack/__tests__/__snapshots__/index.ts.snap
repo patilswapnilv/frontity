@@ -4,10 +4,16 @@ exports[`Babel returns for development 1`] = `
 Object {
   "es5": Object {
     "devtool": "cheap-module-eval-source-map",
-    "entry": Array [
-      "webpack-hot-middleware/client",
-      "../../../src/client",
-    ],
+    "entry": Object {
+      "alternate": Array [
+        "webpack-hot-middleware/client",
+        "../../../src/client/alternate",
+      ],
+      "other": Array [
+        "webpack-hot-middleware/client",
+        "../../../src/client",
+      ],
+    },
     "externals": Object {},
     "mode": "development",
     "module": Object {
@@ -32,7 +38,7 @@ Object {
     "name": "client",
     "output": Object {
       "chunkFilename": "[name].es5.js",
-      "filename": "main.es5.js",
+      "filename": "[name].es5.js",
       "path": "../../../build/static",
       "publicPath": "/static",
     },
@@ -94,10 +100,16 @@ Object {
   },
   "module": Object {
     "devtool": "cheap-module-eval-source-map",
-    "entry": Array [
-      "webpack-hot-middleware/client",
-      "../../../src/client",
-    ],
+    "entry": Object {
+      "alternate": Array [
+        "webpack-hot-middleware/client",
+        "../../../src/client/alternate",
+      ],
+      "other": Array [
+        "webpack-hot-middleware/client",
+        "../../../src/client",
+      ],
+    },
     "externals": Object {},
     "mode": "development",
     "module": Object {
@@ -122,7 +134,7 @@ Object {
     "name": "client",
     "output": Object {
       "chunkFilename": "[name].module.js",
-      "filename": "main.module.js",
+      "filename": "[name].module.js",
       "path": "../../../build/static",
       "publicPath": "/static",
     },
@@ -184,9 +196,7 @@ Object {
   },
   "server": Object {
     "devtool": "cheap-module-eval-source-map",
-    "entry": Array [
-      "../../../src/server",
-    ],
+    "entry": "../../../src/server",
     "externals": Object {
       "any-promise": "promise-monofill",
     },
@@ -267,9 +277,14 @@ exports[`Babel returns for production 1`] = `
 Object {
   "es5": Object {
     "devtool": false,
-    "entry": Array [
-      "../../../src/client",
-    ],
+    "entry": Object {
+      "alternate": Array [
+        "../../../src/client/alternate",
+      ],
+      "other": Array [
+        "../../../src/client",
+      ],
+    },
     "externals": Object {},
     "mode": "production",
     "module": Object {
@@ -294,7 +309,7 @@ Object {
     "name": "client",
     "output": Object {
       "chunkFilename": "[name].es5.[chunkhash].js",
-      "filename": "main.es5.[chunkhash].js",
+      "filename": "[name].es5.[chunkhash].js",
       "path": "../../../build/static",
       "publicPath": "/static",
     },
@@ -350,9 +365,14 @@ Object {
   },
   "module": Object {
     "devtool": false,
-    "entry": Array [
-      "../../../src/client",
-    ],
+    "entry": Object {
+      "alternate": Array [
+        "../../../src/client/alternate",
+      ],
+      "other": Array [
+        "../../../src/client",
+      ],
+    },
     "externals": Object {},
     "mode": "production",
     "module": Object {
@@ -377,7 +397,7 @@ Object {
     "name": "client",
     "output": Object {
       "chunkFilename": "[name].module.[chunkhash].js",
-      "filename": "main.module.[chunkhash].js",
+      "filename": "[name].module.[chunkhash].js",
       "path": "../../../build/static",
       "publicPath": "/static",
     },
@@ -433,9 +453,7 @@ Object {
   },
   "server": Object {
     "devtool": false,
-    "entry": Array [
-      "../../../src/server",
-    ],
+    "entry": "../../../src/server",
     "externals": Object {
       "any-promise": "promise-monofill",
     },

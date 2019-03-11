@@ -11,9 +11,11 @@ import stats from "../../build/static/client-chunks.json";
 
 const app = new Koa();
 
+const entrypoint = "other";
+
 app.use(async (ctx, next) => {
-  const extractor = new ChunkExtractor({ stats });
-  const jsx = extractor.collectChunks(<App />);
+  const extractor = new ChunkExtractor({ stats, entrypoints: [entrypoint] });
+  const jsx = extractor.collectChunks(<App bundle={entrypoint} />);
   const html = renderToString(jsx);
   const scriptTags = extractor.getScriptTags();
   const linkTags = extractor.getLinkTags();
