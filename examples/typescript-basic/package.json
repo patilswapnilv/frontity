@@ -11,7 +11,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@frontity/core": "^0.2.0",
-    "@frontity/file-settings": "^0.0.1"
+    "@frontity/file-settings": "^0.X"
   },
   "devDependencies": {
     "ts-node": "^8.0.3"

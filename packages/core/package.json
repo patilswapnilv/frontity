@@ -32,7 +32,7 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
-    "@frontity/file-settings": "^0.0.1",
+    "@frontity/file-settings": "^0.X",
     "@loadable/babel-plugin": "^5.6.0",
     "@loadable/component": "^5.6.1",
     "@loadable/server": "^5.6.1",
