@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event.repository.full_name == github.repository
 
     steps:
       - name: Checkout
@@ -26,6 +26,6 @@ jobs:
         run: npm ci
 
       - name: Deploy to now
-        run: npx lerna run now --parallel -- -- --prod
+        run: npx lerna run vercel --parallel -- -- --prod
         env:
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}

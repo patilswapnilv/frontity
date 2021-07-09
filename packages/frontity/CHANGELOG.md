@@ -1,5 +1,32 @@
 # Change Log
 
+## 1.16.1
+
+### Patch Changes
+
+- [`ba161a58`](https://github.com/frontity/frontity/commit/ba161a58ca6759c1209f926af28f8b3aba141476) [#841](https://github.com/frontity/frontity/pull/841) Thanks [@michalczaplinski](https://github.com/michalczaplinski)! - Add the `.DS_Store` files to the list of files that a directory where you want to run `npx frontity create` can contain.
+
+## 1.16.0
+
+### Minor Changes
+
+- [`4d652ea2`](https://github.com/frontity/frontity/commit/4d652ea27ff70a05fff089a2f6ca3c5c72c2974c) [#788](https://github.com/frontity/frontity/pull/788) Thanks [@orballo](https://github.com/orballo)! - Initialize a git repository in the project folder when starting a new project with
+  `frontity create`. Additionally, add a `--no-git` option to the CLI which skips
+  the initialization.
+
+## 1.15.0
+
+### Minor Changes
+
+- [`62e60216`](https://github.com/frontity/frontity/commit/62e60216198111626d82566507f7f208323ffeee) [#774](https://github.com/frontity/frontity/pull/774) Thanks [@DAreRodz](https://github.com/DAreRodz)! - Add an `--analyze` option to the `dev` and `build` commands. The flag should be explicitly set in order to generate HTML files for bundle analysis.
+
+### Patch Changes
+
+- [`77e0a286`](https://github.com/frontity/frontity/commit/77e0a286ceb8274efb6a473c01c8f60d78b70225) [#786](https://github.com/frontity/frontity/pull/786) Thanks [@orballo](https://github.com/orballo)! - Modifies the `frontity create` command so it generates a `tsconfig.json` file and adds dev dependencies to `package.json`. Feature discussion: https://community.frontity.org/t/full-typescript-support-in-frontity-create/880
+
+- Updated dependencies [[`641a1cf0`](https://github.com/frontity/frontity/commit/641a1cf00a02f78076e23b7918027d7219c08f58), [`86b2eff9`](https://github.com/frontity/frontity/commit/86b2eff993aac3e9360946a0c190e239b6f93abf)]:
+  - @frontity/types@1.8.0
+
 ## 1.14.3
 
 ### Patch Changes

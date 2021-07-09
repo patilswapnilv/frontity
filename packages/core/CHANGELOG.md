@@ -1,5 +1,56 @@
 # Change Log
 
+## 1.14.3
+
+### Patch Changes
+
+- [`e5ca6cd7`](https://github.com/frontity/frontity/commit/e5ca6cd7d1c3562c04ff6371fb895be1a3558cff) [#850](https://github.com/frontity/frontity/pull/850) Thanks [@luisherranz](https://github.com/luisherranz)! - Fix problem with CDNs that return the same HTML response for URLs with same queries in different order.
+
+## 1.14.2
+
+### Patch Changes
+
+- [`a154a9cb`](https://github.com/frontity/frontity/commit/a154a9cb7093ab0199c01f28b6363f93427abb17) [#840](https://github.com/frontity/frontity/pull/840) Thanks [@luisherranz](https://github.com/luisherranz)! - Fix Webpack/TS-Node excludes not working on Windows.
+
+* [`63154b4f`](https://github.com/frontity/frontity/commit/63154b4fb16095ccf22e4862c6d91c9c6157af67) [#837](https://github.com/frontity/frontity/pull/837) Thanks [@luisherranz](https://github.com/luisherranz)! - Fix transpilation of `frontity.config.js` files in external packages.
+
+- [`31cf53f0`](https://github.com/frontity/frontity/commit/31cf53f02128b19995ea3eed6f6f75ef936210a5) [#843](https://github.com/frontity/frontity/pull/843) Thanks [@DAreRodz](https://github.com/DAreRodz)! - Refactor `createSymlinks` to use a custom implementation of `fs-extra`'s `readFile` function.
+
+## 1.14.1
+
+### Patch Changes
+
+- [`6c27804f`](https://github.com/frontity/frontity/commit/6c27804f096ded67b3926afc9b974fcbb548c978) Thanks [@luisherranz](https://github.com/luisherranz)! - Fix a problem that prevented Frontity packages containing "webpack" in the name from being transpiled.
+
+## 1.14.0
+
+### Minor Changes
+
+- [`e7997268`](https://github.com/frontity/frontity/commit/e7997268bc7dd076daeca04951bbb1bc7e778183) [#812](https://github.com/frontity/frontity/pull/812) Thanks [@cristianbote](https://github.com/cristianbote)! - Introduce the possibility to customize Webpack, Babel, and the build directory with a `frontity.config.js` file.
+
+## 1.13.0
+
+### Minor Changes
+
+- [`8d6dbd5e`](https://github.com/frontity/frontity/commit/8d6dbd5e9c2a1703c26786f05e56c50555debe37) [#798](https://github.com/frontity/frontity/pull/798) Thanks [@luisherranz](https://github.com/luisherranz)! - Send a `X-Frontity-Dev` header when Frontity is run in development mode. Useful to know what type of error should be shown in the Embedded mode plugin.
+
+## 1.12.0
+
+### Minor Changes
+
+- [`62e60216`](https://github.com/frontity/frontity/commit/62e60216198111626d82566507f7f208323ffeee) [#774](https://github.com/frontity/frontity/pull/774) Thanks [@DAreRodz](https://github.com/DAreRodz)! - Add an `--analyze` option to the `dev` and `build` commands. The flag should be explicitly set in order to generate HTML files for bundle analysis.
+
+* [`86b2eff9`](https://github.com/frontity/frontity/commit/86b2eff993aac3e9360946a0c190e239b6f93abf) [#783](https://github.com/frontity/frontity/pull/783) Thanks [@luisherranz](https://github.com/luisherranz)! - Add an HMR flag to the Frontity state (`state.frontity.hmr`) that indicates if the code is run on an HMR refresh or not.
+
+### Patch Changes
+
+- [`aaa85073`](https://github.com/frontity/frontity/commit/aaa850731dc4b9defa51618f09a1ebf3427ce83b) [#764](https://github.com/frontity/frontity/pull/764) Thanks [@michalczaplinski](https://github.com/michalczaplinski)! - Move the call of the afterSSR() actions to before taking the state snapshot. This way any `afterSSR()` action still has an option to modify the snapshot before sending it to the client. This is important for security as we delete the state.source.auth token in that action in wp-source.
+
+* [`89de8177`](https://github.com/frontity/frontity/commit/89de81770279d353f330298f82fe3abc718b5c52) [#777](https://github.com/frontity/frontity/pull/777) Thanks [@cristianbote](https://github.com/cristianbote)! - Due to a recent warning in Chrome for missusing preload instead of modulepreload for module files we need to replace the loadable linkType for assets that have to be preloaded as modules instead.
+
+* Updated dependencies [[`7111b3ce`](https://github.com/frontity/frontity/commit/7111b3cee7065816a885629cac93967f705d0969), [`641a1cf0`](https://github.com/frontity/frontity/commit/641a1cf00a02f78076e23b7918027d7219c08f58)]:
+  - @frontity/connect@1.3.0
+
 ## 1.11.1
 
 ### Patch Changes

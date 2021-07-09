@@ -89,6 +89,38 @@ interface ExtractLinkPartsReturn {
 }
 
 /**
+ * RegExp used inside {@link extractLinkParts} for parsing links into parts.
+ * It's not directly replaceable with {@link URL}.
+ *
+ * @remarks Code explanation:
+ *
+ * ```
+ * ^              // Beginning of line
+ *
+ * (?:            // Protocol (optional)
+ *   (?:[^:/?#]+) // Any character other than ':', '/', '?', '#'
+ *   :            // ':' character
+ * )?
+ *
+ * (?:            // Host (optional)
+ *   \/\/         // The double-slash that follows the protocol
+ *   (?:[^/?#]*)  // Hostname and port
+ * )?
+ *                // Pathname
+ * ([^?#]*)       // 1st capturing group
+ *
+ * (?:            // Search (optional)
+ *   \?           // [?] character
+ *   ([^#]*)      // 2nd capturing group (note: the [?] is not included)
+ * )?
+ *                // Hash (optional)
+ * (#.*)?         // 3rd capturing group
+ * ```
+ */
+const extractLinkRegExp =
+  /^(?:(?:[^:/?#]+):)?(?:\/\/(?:[^/?#]*))?([^?#]*)(?:\?([^#]*))?(#.*)?/;
+
+/**
  * Extract the different link parts: pathname, query and hash.
  *
  * @param link - The link.
@@ -97,16 +129,26 @@ interface ExtractLinkPartsReturn {
  * ExtractLinkPartsReturn}.
  */
 export const extractLinkParts = (link: string): ExtractLinkPartsReturn => {
-  const [
-    ,
-    pathname,
-    queryString,
-    hash,
-  ] = /^(?:(?:[^:/?#]+):)?(?:\/\/(?:[^/?#]*))?([^?#]*)(?:\?([^#]*))?(#.*)?/.exec(
-    link
-  );
+  const [, pathname, queryString, hash] = extractLinkRegExp.exec(link);
   return { pathname, queryString, hash };
 };
+
+/**
+ * RegExp used inside {@link parse} to extract the path and page number.
+ *
+ * @remarks Code explanation:
+ *
+ * ```
+ * ^       // Beginning of line
+ * (.*)    // Pathname (1st capturing group)
+ * page\/  // The "page/" string
+ * (\d+)   // Page number (2nd capturing group)
+ * \/?     // Optional "/"
+ * (\?.*)? // Optional query string
+ * $       // End of line
+ * ```
+ */
+const pageNumberRegexp = /^(.*)page\/(\d+)\/?(\?.*)?$/;
 
 /**
  * Extract the different Frontity link params.
@@ -117,7 +159,7 @@ export const extractLinkParts = (link: string): ExtractLinkPartsReturn => {
  */
 export const parse: WpSource["libraries"]["source"]["parse"] = (link) => {
   const { pathname, queryString, hash } = extractLinkParts(link);
-  const [, path, page] = /^(.*)page\/(\d+)\/?(\?.*)?$/.exec(pathname) || [
+  const [, path, page] = pageNumberRegexp.exec(pathname) || [
     null,
     pathname,
     "1",

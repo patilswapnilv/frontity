@@ -1,5 +1,25 @@
 # Change Log
 
+## 1.4.3
+
+### Patch Changes
+
+- [`e5ca6cd7`](https://github.com/frontity/frontity/commit/e5ca6cd7d1c3562c04ff6371fb895be1a3558cff) [#850](https://github.com/frontity/frontity/pull/850) Thanks [@luisherranz](https://github.com/luisherranz)! - Fix problem with CDNs that return the same HTML response for URLs with same queries in different order.
+
+- Updated dependencies [[`ba161a58`](https://github.com/frontity/frontity/commit/ba161a58ca6759c1209f926af28f8b3aba141476)]:
+  - frontity@1.16.1
+
+## 1.4.2
+
+### Patch Changes
+
+- [`86b2eff9`](https://github.com/frontity/frontity/commit/86b2eff993aac3e9360946a0c190e239b6f93abf) [#783](https://github.com/frontity/frontity/pull/783) Thanks [@luisherranz](https://github.com/luisherranz)! - Fix a bug that causes the URL being incorrectly populated when doing an HMR refresh.
+
+* [`277c05d3`](https://github.com/frontity/frontity/commit/277c05d30cf39468aad3348abde425e11ea0bf6f) [#775](https://github.com/frontity/frontity/pull/775) Thanks [@DAreRodz](https://github.com/DAreRodz)! - Make redirection URLs relative, so they redirect to `localhost` in a dev environment.
+
+* Updated dependencies [[`62e60216`](https://github.com/frontity/frontity/commit/62e60216198111626d82566507f7f208323ffeee), [`77e0a286`](https://github.com/frontity/frontity/commit/77e0a286ceb8274efb6a473c01c8f60d78b70225)]:
+  - frontity@1.15.0
+
 ## 1.4.1
 
 ### Patch Changes

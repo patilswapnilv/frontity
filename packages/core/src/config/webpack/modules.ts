@@ -1,8 +1,8 @@
 import hash from "hash-it";
-import { Configuration } from "webpack";
 import babelCore from "@babel/core/package.json";
 import babelLoader from "babel-loader/package.json";
-import { Target, BabelConfigs, Mode } from "../../../types";
+import { BabelConfigs } from "../../../types";
+import { Target, Mode, WebpackConfig } from "@frontity/types/config";
 
 /**
  * The options of the {@link moduleConf} function.
@@ -25,6 +25,15 @@ interface ModuleOptions {
 }
 
 /**
+ * The regular expressions used to exclude packages from transpilation.
+ */
+export const exclude = [
+  /(\/|\\)core-js($|(\/|\\))/,
+  /(\/|\\)webpack($|(\/|\\))/,
+  /(\/|\\)regenerator-runtime($|(\/|\\))/,
+];
+
+/**
  * Generate the object for Webpack's entry configuration.
  *
  * Official Webpack docs: https://webpack.js.org/configuration/entry-context/.
@@ -37,14 +46,14 @@ const moduleConf = ({
   target,
   babel,
   mode,
-}: ModuleOptions): Configuration["module"] => ({
+}: ModuleOptions): WebpackConfig["module"] => ({
   rules: [
     {
       // Support for js, jsx, ts and tsx files.
       test: /\.(j|t)sx?$/,
       // Do not try to transpile the files of webpack, core-js or the
       // regenerator-runtime because they break if we do so.
-      exclude: [/\bcore-js\b/, /\bwebpack\b/, /\bregenerator-runtime\b/],
+      exclude,
       use: {
         loader: "babel-loader",
         options: {
